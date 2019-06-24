@@ -8,7 +8,7 @@ def nyc_pigeon_organizer(data)
            my_pigeons[name] =
             {
               color: data[:color].select {|k,v| v.include?(name)}.keys,
-              gender: data[:gender].select {|k,v| v.include?(name)}.keys,
+              gender: data[:gender].select {|k,v| v.include?(name)}.keys.to_s,
               lives: data[:lives].select {|k,v| v.include?(name)}.keys
             }
        end

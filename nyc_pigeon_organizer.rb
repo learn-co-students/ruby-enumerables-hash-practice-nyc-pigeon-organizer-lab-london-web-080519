@@ -7,9 +7,9 @@ def nyc_pigeon_organizer(data)
       array.each do |name| #third, containing the names is an array. get the names out of the arrays
            my_pigeons[name] =
             {
-              color: nil,
-              gender: nil,
-              lives: nil
+              color: data[:color].select {|k,v| v.include?(name)}.keys,
+              gender: data[:gender].select {|k,v| v.include?(name)}.keys,
+              lives: data[:lives].select {|k,v| v.include?(name)}.keys
             }
        end
     end

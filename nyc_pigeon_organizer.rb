@@ -1,28 +1,21 @@
 def nyc_pigeon_organizer(data)
-  # write your code here!
+  new_hash = {}
+  data.each do |key, value|
+    value.each do |new_value, names|
+      names.each do |name|
 
-    names_array = data[:gender].values.flatten.uinq
-    object = Hash.new
+        if !new_hash[name]
+          new_hash[name] = {}
+        end
 
-    names_array.each do |item|
-      object[item] = {}
+        if !new_hash[name][key]
+          new_hash[name][key] = []
+        end
+
+        new_hash[name][key] << new_value.to_s
+
+      end
     end
-
-    object.keys.each do |item|
-      data[:color].keys.each do |element|
-        if data[:color][element].include?(object[item])
-          object[item][:color].push(element)
-        end
-      end
-      data[:gender].keys.each do |element|
-        if data[:gender][element].include?(object[item])
-          object[item][:gender].push(element)
-        end
-      end
-      data[:lives].keys.each do |element|
-        if data[:lives][element].include?(object[item])
-          object[item][:lives].push(element)
-        end
-      end
-      object
+  end
+  new_hash
 end

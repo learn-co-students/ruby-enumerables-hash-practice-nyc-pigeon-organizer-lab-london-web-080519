@@ -20,7 +20,7 @@ def nyc_pigeon_organizer(data)
           
 
         end # if name & hash  
-          # if name is exist and hash add keys as string in array --> ["Theo"][color]= [purple]
+          # if name and hash false add keys as string in array --> ["Theo"][color]= [purple]
           pigeon_list[name][hash].push(key.to_s)
              
          
